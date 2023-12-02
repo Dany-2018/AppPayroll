@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "About";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title style="font-size:28px;">Detalles del Empleado</title>
+</head>
+<body>
+
+    @using (Html.BeginForm("MostrarEmpleadoPorId", "Home" + "", FormMethod.Get))
+    {
+        <label>Ingrese el ID del Empleado:</label>
+
+        <div class="input-group mb-3">
+            <div class="input-group-append">
+
+                @Html.TextBox("id", null, new { @class = "form-control" })
+
+            </div>
+            <input type="submit" placeholder="Id Employee" value="Buscar" class="btn btn-outline-secondary" />
+
+        </div>
+
+       
+    }
+    <br />
+    @Html.ActionLink("Volver a lista de empleados", "", "Home", null, new { @class = "btn btn-primary" })
+
+</body>
+</html>
+
+<script>
+    $('form').submit(function () {
+        var id = $('#id').val(); // Obtener el valor del campo de texto del ID 
+
+        // Validar que el ID no contenga letras ni sea igual a 0
+        if (/^[1-9]+$/.test(id)) {
+            window.location.href = '/Home/MostrarEmpleadoPorId?id=' + id; // Redirigir a la página con el ID proporcionado
+        } else {
+            alert('El ID debe ser un número entero mayor que 0.'); // Mostrar mensaje de error si el ID no es válido
+        }
+
+        return false; // Evitar el envío normal del formulario
+    });
+
+    
+</script>
+
+<style>
+    input.btn.btn-outline-secondary, a.btn.btn-primary {
+        background: #000;
+        color: #fff;
+    }
+
+</style>

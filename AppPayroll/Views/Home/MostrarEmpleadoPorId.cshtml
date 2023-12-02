@@ -1,0 +1,51 @@
+﻿
+@model AppPayroll.Models.Employee
+
+@{
+    ViewBag.Title = "MostrarEmpleadoPorId";
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title style="font-size:28px;">Detalles del Empleado</title>
+</head>
+<body>
+
+    <h1>Detalles del Empleado</h1>
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Salario</th>
+                <th>Edad</th>
+                <th>Salario total por año</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+
+                <td>@Model.Id</td>
+                <td>@Model.EmployeeName</td>
+                <td>@Model.EmployeeSalary</td>
+                <td>@Model.EmployeeAge</td>
+                <td>@Model.SalarioAnual</td>
+
+            </tr>
+        <tbody>
+    </table>
+    @Html.ActionLink("Volver a lista de empleados", "", "", null, new { @class = "btn btn-primary" })
+
+</body>
+
+</html>
+<style>
+    a.btn.btn-primary {
+        background: #000;
+        color: #fff;
+    }
+</style>
+

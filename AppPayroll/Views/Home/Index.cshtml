@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <section class="row" aria-labelledby="aspnetTitle">
+        <h1 id="title" style=" font-size: 28px;">Your Employee Payroll</h1>
+        <p class="lead">Below you will see the list of employees</p>
+       
+    </section>
+
+    <div class="row">
+        <section class="col-md-12" aria-labelledby="gettingStartedTitle">
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col">LASTNAME</th>
+                        <th scope="col">AGE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var employee in Model)
+                    {
+                        <tr>
+                            <th scope="row">@employee.Id</th>
+                            <td>@employee.EmployeeName</td>
+                            <td>@employee.EmployeeSalary</td>
+                            <td>@employee.EmployeeAge</td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+
+
+
+        </section>
+        
+    </div>
+</main>

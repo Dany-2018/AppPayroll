@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "SeachEmployee";
+}
+
+@using (Html.BeginForm("MostrarEmpleadoPorId", "Empleado", FormMethod.Get))
+{
+    <label>Ingrese el ID del Empleado:</label>
+    @Html.TextBoxFor(model => model)
+
+
+}
